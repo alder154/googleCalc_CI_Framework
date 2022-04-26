@@ -1,6 +1,5 @@
 const GCloudSetupPage = require("../pageobjects/googleCalc.page");
 const ConfigValidation = require("../../model/configValidation");
-//const {scrnshotName} = require('../../utilities/genScrnshotName')
 
 describe("Hurt-me-plenty task", async () => {
   let link = "https://cloud.google.com/";
@@ -13,8 +12,6 @@ describe("Hurt-me-plenty task", async () => {
 
   before(async () => {
     await GCloudSetupPage.open(link);
-    //await browser.takeScreenshot();
-    //await browser.saveScreenshot(`/Users/Sanya/EPAM tasks on work/wdio googleCloud/screenshots/${scrnshotName}.png`);
     await GCloudSetupPage.navigateToComputeEngine();
     await GCloudSetupPage.switchToCalcFrame();
     await GCloudSetupPage.setParamToCalc();
@@ -27,8 +24,7 @@ describe("Hurt-me-plenty task", async () => {
 
   it("validate VMClass", async () => {
     let VMClass = await GCloudSetupPage.VMClass;
-    //await expect(VMClass).toHaveTextContaining(reqVMClass);
-    await expect(VMClass).toHaveTextContaining("pool");
+    await expect(VMClass).toHaveTextContaining(reqVMClass);
   });
 
   it("validate instance type", async () => {
