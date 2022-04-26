@@ -311,7 +311,7 @@ exports.config = {
   after: function (result, capabilities, specs) {
     if (result) {
       browser.takeScreenshot();
-      browser.saveScreenshot(`./screenshots/${scrnshotName}.png`);
+      browser.saveScreenshot(`./screenshots/${scrnshotName + "-AfterAll"}.png`);
     }
   },
 

@@ -9,8 +9,8 @@ function setCapabilities() {
     },
   ];
 
-  if (argv.caps) {
-    const browsers = argv.caps.split(",");
+  if (argv.browser) {
+    const browsers = argv.browser.split(",");
     capabilities = browsers.map((browserName) => {
       return { browserName };
     });
