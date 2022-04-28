@@ -1,4 +1,4 @@
-const { scrnshotName } = require("./utilities/genScrnshotName");
+const { screenshotName } = require("./utilities/generateScreenshotName");
 const { setCapabilities } = require("./utilities/capabilities");
 let capabilities = setCapabilities();
 
@@ -295,11 +295,8 @@ exports.config = {
    * @param {Number} result 0 - command success, 1 - command error
    * @param {Object} error error object if any
    */
-  afterCommand: function (commandName, args, result, error) {
-    if (error) {
-      console.log("AAA this Runs after a WebdriverIO command gets executed");
-    }
-  },
+  // afterCommand: function (commandName, args, result, error) {
+  // },
 
   /**
    * Gets executed after all tests are done. You still have access to all global variables from
@@ -311,7 +308,7 @@ exports.config = {
   after: function (result, capabilities, specs) {
     if (result) {
       browser.takeScreenshot();
-      browser.saveScreenshot(`./screenshots/${scrnshotName + "-AfterAll"}.png`);
+      browser.saveScreenshot(`./screenshots/${screenshotName + "-AfterAll"}.png`);
     }
   },
 
